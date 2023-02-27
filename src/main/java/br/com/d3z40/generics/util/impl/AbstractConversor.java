@@ -4,10 +4,7 @@ import br.com.d3z40.generics.model.Pessoa;
 import br.com.d3z40.generics.util.Conversor;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
 
-@Component
 public class AbstractConversor<T extends Pessoa> implements Conversor<T> {
 
     @Autowired
@@ -15,7 +12,7 @@ public class AbstractConversor<T extends Pessoa> implements Conversor<T> {
 
     private Class<T> tClass;
 
-    AbstractConversor(@Qualifier("clienteClass") Class<T> tClass) {
+    AbstractConversor(Class<T> tClass) {
         this.tClass = tClass;
     }
 

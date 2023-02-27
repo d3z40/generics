@@ -7,6 +7,7 @@ import br.com.d3z40.generics.model.Informacao;
 import br.com.d3z40.generics.repository.InformacaoRepository;
 import br.com.d3z40.generics.util.impl.AbstractConversor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -21,9 +22,11 @@ public class InformacaoService {
     private InformacaoRepository repository;
 
     @Autowired
+    @Qualifier("ConversorCliente")
     private AbstractConversor<Cliente> clienteConv;
 
     @Autowired
+    @Qualifier("ConversorFornecedor")
     private AbstractConversor<Fornecedor> fornecedorConv;
 
     public ResponseEntity<Informacao> saveCliente(Cliente cliente) {
